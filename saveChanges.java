@@ -58,7 +58,7 @@ public class saveChanges implements ActionListener
            else
 			{*/
               fileName.delete();
-              
+             
 				try 
 				{
                    
@@ -68,11 +68,21 @@ public class saveChanges implements ActionListener
                 	   Files.copy(FileNamePictureDelete.toPath(),                           ///copy file to directory to selected name
                    (new File(path + n +".jpg")).toPath(),
                    StandardCopyOption.REPLACE_EXISTING);
-					FileNamePictureDelete.delete(); 
-					JOptionPane.showMessageDialog(null, "The user has updated");
-//                 Files.copy(selectedFile.toPath(),                           ///copy file to directory to selected name
-//                 (new File(pathPicture + t +".jpg")).toPath(),
-//                 StandardCopyOption.REPLACE_EXISTING);
+                	   System.out.println("Filename to string " + FileNamePictureDelete.toString());
+                	   if(FileNamePictureDelete.toString().equalsIgnoreCase(path + n  + ".jpg"))
+                	   {
+                		   //do nothing
+                	   }
+                	   else
+                	   {
+                		   //delete picture
+                		   FileNamePictureDelete.delete(); 
+                		   JOptionPane.showMessageDialog(null, "The picture has updated to the new name");
+                	   }
+					
+/*                 Files.copy(selectedFile.toPath(),                           ///copy file to directory to selected name
+                 (new File(pathPicture + t +".jpg")).toPath(),
+                 StandardCopyOption.REPLACE_EXISTING);*/
                    }
                } catch (IOException ex)
 				{

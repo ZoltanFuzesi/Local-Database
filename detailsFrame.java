@@ -16,6 +16,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class detailsFrame implements ActionListener
@@ -45,6 +46,7 @@ public class detailsFrame implements ActionListener
 	    }
       public static void  detailsFrame()
 		{
+    	  	GlobalValues.emptyAllVariable();
 			if(DatabaseFinalV3.getsecondWindowIsOpne(1) == false)
 			{
 				DatabaseFinalV3.setsecondWindowIsOpne(1, false);//secondWindowIsOpne1  = true;
@@ -193,7 +195,7 @@ public class detailsFrame implements ActionListener
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		 String command = e.getActionCommand();
-         if (command.equals("Add")) 
+      /*   if (command.equals("Add")) 
 			{ 
              
              System.out.println("Add method called");
@@ -208,15 +210,22 @@ public class detailsFrame implements ActionListener
              String emailAddress = GlobalValues.getEmail();//emailText.getText();
              String name = firstName + " " + lastName;
              GlobalValues.setFullName(firstName + " " + lastName); 
-             Data.Data(name, firstName, lastName, address1, address2, address3, PPSNumber, studentID, contact, emailAddress);
-				try 
-				{
-                 Mentes.Mentes(GlobalValues.getFullName());  
-             } catch (IOException ex){
-                 Logger.getLogger(DatabaseFinalV3.class.getName()).log(Level.SEVERE, null, ex);
-             } 
-					detailsFrame.getFrameAdd();
-					DatabaseFinalV3.setsecondWindowIsOpne(1, false);//secondWindowIsOpne1=false;
-         }	
+             if(firstName!=" "&&lastName!=" "&&address1!=" "&&address2!=" "&&address3!=" "&&PPSNumber!=" "&&contact!=" "&&emailAddress!=" "&&name!=" ")
+             {
+	             Data.Data(name, firstName, lastName, address1, address2, address3, PPSNumber, studentID, contact, emailAddress);
+					try 
+					{
+	                 Mentes.Mentes(GlobalValues.getFullName());  
+	             } catch (IOException ex){
+	                 Logger.getLogger(DatabaseFinalV3.class.getName()).log(Level.SEVERE, null, ex);
+	             } 
+						detailsFrame.getFrameAdd();
+						DatabaseFinalV3.setsecondWindowIsOpne(1, false);//secondWindowIsOpne1=false;
+             }
+             else
+             {
+            	 JOptionPane.showMessageDialog(null, "Empty fields");
+             }
+         }	*/
 	}
    }

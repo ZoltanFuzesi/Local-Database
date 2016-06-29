@@ -22,7 +22,7 @@ public class Delete
               fileName.delete();
               FileNamePicture.delete();
               ans = true;
-              
+              System.gc();
           }
           return ans;
       } 

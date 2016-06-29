@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.swing.JOptionPane;
+
 public class ActionAdd implements ActionListener
 {
 	public void actionPerformed(ActionEvent e) {
@@ -25,15 +27,22 @@ public class ActionAdd implements ActionListener
         String emailAddress = GlobalValues.getEmail();//emailText.getText();
         String name = firstName + " " + lastName;
         GlobalValues.setFullName(firstName + " " + lastName); 
-        Data.Data(name, firstName, lastName, address1, address2, address3, PPSNumber, studentID, contact, emailAddress);
-			try 
-			{
-            Mentes.Mentes(GlobalValues.getFullName());  
-        } catch (IOException ex){
-            Logger.getLogger(DatabaseFinalV3.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-				detailsFrame.getFrameAdd();
-				DatabaseFinalV3.setsecondWindowIsOpne(1, false);//secondWindowIsOpne1=false;
+        if(firstName.length()>0&&lastName.length()>0&&address1.length()>0&&address2.length()>0&&address3.length()>0&&PPSNumber.length()>0&&studentID.length()>0&&contact.length()>0&&emailAddress.length()>0)
+        {
+        	Data.Data(name, firstName, lastName, address1, address2, address3, PPSNumber, studentID, contact, emailAddress);
+				try 
+				{
+					Mentes.Mentes(GlobalValues.getFullName());  
+				} catch (IOException ex){
+					Logger.getLogger(DatabaseFinalV3.class.getName()).log(Level.SEVERE, null, ex);
+				} 
+					detailsFrame.getFrameAdd();
+					DatabaseFinalV3.setsecondWindowIsOpne(1, false);//secondWindowIsOpne1=false;
+        }
+        else
+        {
+        	JOptionPane.showMessageDialog(null, "Empty fields");
+        }
     }
 	
 	}	

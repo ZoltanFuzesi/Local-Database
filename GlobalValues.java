@@ -21,6 +21,21 @@ public class GlobalValues
 	{
 		
 	}
+	
+	public static void emptyAllVariable()
+	{
+		setName("");
+		setFullName("");
+		setFirstlName("");
+		setLastName("");
+		setAddress1("");
+		setAddress2("");
+		setAddress3("");
+		setPPSNumber("");
+		setStudentId("");
+		setContactNumber("");
+		setEmail("");
+	}
 
 	public static void setName(String n)
 	{

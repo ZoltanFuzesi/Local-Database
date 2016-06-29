@@ -60,7 +60,7 @@ public class Data
           System.out.println("Error " + error);
           if(chn==32)
 			{
-          	JOptionPane.showMessageDialog(null, "Empty name!");
+          		JOptionPane.showMessageDialog(null, "Empty name!");
           }
           else
 			{

@@ -82,9 +82,9 @@ public class ImagePreviewPanel implements ActionListener
                              (new File(path + t +".jpg")).toPath(),
                              StandardCopyOption.REPLACE_EXISTING);
                          
-                         Files.copy(selectedFile.toPath(),                           ///copy file to directory to selected name
+                     /*    Files.copy(selectedFile.toPath(),                           ///copy file to directory to selected name
                                  (new File(pathPicture + t +".jpg")).toPath(),
-                                 StandardCopyOption.REPLACE_EXISTING);
+                                 StandardCopyOption.REPLACE_EXISTING);*/
 
                      } catch (IOException ex) {
                          Logger.getLogger(DatabaseFinalV3.class.getName()).log(Level.SEVERE, null, ex);
